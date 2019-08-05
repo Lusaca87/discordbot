@@ -2,4 +2,4 @@
 /out/
 /target/
 /src/main/resources/META-INF/MANIFEST.MF
-
+/src/test/
