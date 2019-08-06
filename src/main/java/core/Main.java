@@ -1,5 +1,6 @@
 package core;
 
+import commands.cmdConfig;
 import commands.cmdPing;
 import listeners.CommandListener;
 import net.dv8tion.jda.core.*;
@@ -31,6 +32,10 @@ public class Main {
         builder.setAutoReconnect(true);
         builder.setStatus(OnlineStatus.ONLINE);
 
+        Tools.AddUserCommand("!ping");
+        Tools.AddBotCommand("!config");
+
+
         addListeners();
         addCommands();
 
@@ -51,5 +56,6 @@ public class Main {
     private static void addCommands()
     {
         commandHandler.commands.put("ping", new cmdPing());
+        commandHandler.commands.put("config", new cmdConfig());
     }
 }

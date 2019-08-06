@@ -7,10 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/commands/cmdPing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/listeners/CommandListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/commands/cmdConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/cmdPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/cmdPing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listeners/CommandListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Tools.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +50,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TestProject" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565047307178</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adding &quot;Ping&quot; command">
+      <created>1565079028738</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565079028738</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,15 +150,16 @@
     <MESSAGE value="Adding Settings to MainPC" />
     <MESSAGE value="Add basic discord connect&#10;Add some Tools" />
     <MESSAGE value="Adding postmethod to get webdata&#10;Adding some tools&#10;Editing bot configuration&#10;Get Bot token from a websource (security)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding postmethod to get webdata&#10;Adding some tools&#10;Editing bot configuration&#10;Get Bot token from a websource (security)" />
+    <MESSAGE value="Adding &quot;Ping&quot; command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding &quot;Ping&quot; command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/utils/UrlData.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main/java/listeners/CommandListener.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
