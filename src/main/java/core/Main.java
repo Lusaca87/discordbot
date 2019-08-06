@@ -1,5 +1,7 @@
 package core;
 
+import commands.cmdPing;
+import listeners.CommandListener;
 import net.dv8tion.jda.core.*;
 import utils.Tools;
 import utils.UrlData;
@@ -29,6 +31,9 @@ public class Main {
         builder.setAutoReconnect(true);
         builder.setStatus(OnlineStatus.ONLINE);
 
+        addListeners();
+        addCommands();
+
         try {
             JDA jda = builder.buildBlocking();
         } catch (LoginException e) {
@@ -36,5 +41,15 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void addListeners()
+    {
+        builder.addEventListener(new CommandListener());
+    }
+
+    private static void addCommands()
+    {
+        commandHandler.commands.put("ping", new cmdPing());
     }
 }

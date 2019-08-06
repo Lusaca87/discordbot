@@ -4,6 +4,7 @@ public class Tools {
 
     private static String homepageUrl = "http://www.plug-inn.eu";
     private static String Splitter = "Ξ";
+    private static String prefix = "!";
 
 
     public static String getHomepageUrl()
@@ -21,5 +22,7 @@ public class Tools {
     {
         return Splitter;
     }
+
+    public static String getPrefix() { return prefix; }
 
 }
