@@ -1,4 +1,4 @@
-package utils;
+package eu.pluginn.bot.utils;
 
 import java.io.*;
 import java.net.*;
@@ -15,10 +15,10 @@ public class UrlData {
      *
      * @param pUrl Die Webseite die benutzt werden soll.
      * @param action Die Aktion unter $_POST['action'] was gesendet wird.
-     * @param urlParams Die Parameter die gesendet werden sollen. Verwendung als Map<String, String>. z.B Map<"getconfig", "yes"> ist "getconfig=yes" als Post Parameter.
+     * @param urlParams Die Parameter die gesendet werden sollen. Verwendung als Map<String, String>. z.B Map.put("getconfig", "yes"); ist "getconfig=yes" als Post Parameter.
      * @return Die zurückgegebene Inhalt der Webseite.
      */
-    public static String SendPost(String pUrl, String action, Map<String,String> urlParams) throws Exception {
+    public static String sendPost(String pUrl, String action, Map<String,String> urlParams) throws Exception {
 
         URL url = new URL(pUrl);
         Map<String,Object> params = new LinkedHashMap<>();

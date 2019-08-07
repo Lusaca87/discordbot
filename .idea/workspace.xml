@@ -8,15 +8,24 @@
   <component name="ChangeListManager">
     <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/UrlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/UrlData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/cmdConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/cmdPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdPing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/commandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/commandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/commandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/commandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/UrlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/UrlData.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,10 +57,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TestProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="eu.pluginn.bot" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -67,7 +81,7 @@
   </component>
   <component name="RunManager">
     <configuration name="DiscordBot" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="core.Main" />
+      <option name="MAIN_CLASS_NAME" value="eu.pluginn.bot.core.Main" />
       <module name="discordbot" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565086686003</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adding JSON parser for PHP website data.&#10;Adding UrlData.getPlainSite to get website without postdata.">
+      <created>1565164929871</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565164929871</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,18 +178,19 @@
     <MESSAGE value="Adding postmethod to get webdata&#10;Adding some tools&#10;Editing bot configuration&#10;Get Bot token from a websource (security)" />
     <MESSAGE value="Adding &quot;Ping&quot; command" />
     <MESSAGE value="Adding Command maps for every User and Bot to allow single commands for a group&#10;Adding Config command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Command maps for every User and Bot to allow single commands for a group&#10;Adding Config command" />
+    <MESSAGE value="Adding JSON parser for PHP website data.&#10;Adding UrlData.getPlainSite to get website without postdata." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding JSON parser for PHP website data.&#10;Adding UrlData.getPlainSite to get website without postdata." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/listeners/CommandListener.java</url>
-          <line>16</line>
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java</url>
+          <line>17</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/core/Main.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java</url>
           <line>32</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>

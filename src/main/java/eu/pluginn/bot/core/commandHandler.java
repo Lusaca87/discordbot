@@ -1,6 +1,7 @@
-package core;
+package eu.pluginn.bot.core;
 
-import commands.Command;
+import eu.pluginn.bot.commands.Command;
+
 
 import java.util.HashMap;
 

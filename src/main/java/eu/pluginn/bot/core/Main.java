@@ -1,13 +1,13 @@
-package core;
+package eu.pluginn.bot.core;
 
-import commands.cmdConfig;
-import commands.cmdPing;
-import listeners.CommandListener;
+import eu.pluginn.bot.commands.cmdConfig;
+import eu.pluginn.bot.commands.cmdPing;
+import eu.pluginn.bot.listeners.CommandListener;
 import net.dv8tion.jda.core.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import utils.Tools;
-import utils.UrlData;
+import eu.pluginn.bot.utils.Tools;
+import eu.pluginn.bot.utils.UrlData;
 
 import javax.security.auth.login.LoginException;
 import java.util.HashMap;
@@ -20,13 +20,13 @@ public class Main {
     public static void main(String[] args) throws Exception
     {
         //Erzeuge eine neue Map in der die Post Parameter gespeichert werden.
-        Map<String, String> UrlParams = new HashMap<>();
-        UrlParams.put("application", "discord");
-        UrlParams.put("task", "getDiscordToken");
+        Map<String, String> urlParams = new HashMap<>();
+        urlParams.put("application", "discord");
+        urlParams.put("task", "getDiscordToken");
 
         //Sende die Postdaten an die Adresse und verarbeite den Inhalt in der Variabe.
-        String DiscordToken = "";
-        DiscordToken = UrlData.SendPost(Tools.buildCustomPhpUrl("actions.php"), "getConfig", UrlParams);
+        String discordToken = "";
+        discordToken = UrlData.sendPost(Tools.buildCustomPhpUrl("actions.php"), "getConfig", urlParams);
 
 
         //TEST für Json Not final.
@@ -51,12 +51,12 @@ public class Main {
 
         //Erstelle Discord Bot und anschließenden start.
         builder = new JDABuilder(AccountType.BOT);
-        builder.setToken(DiscordToken);
+        builder.setToken(discordToken);
         builder.setAutoReconnect(true);
         builder.setStatus(OnlineStatus.ONLINE);
 
-        Tools.AddUserCommand("!ping");
-        Tools.AddBotCommand("!config");
+        Tools.addUserCommand("!ping");
+        Tools.addBotCommand("!config");
 
 
         addListeners();

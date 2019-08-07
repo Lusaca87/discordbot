@@ -1,4 +1,4 @@
-package core;
+package eu.pluginn.bot.core;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
