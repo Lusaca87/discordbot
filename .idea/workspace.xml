@@ -7,12 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/commands/cmdConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/cmdPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/cmdPing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listeners/CommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/UrlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/UrlData.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565079028738</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding Command maps for every User and Bot to allow single commands for a group&#10;Adding Config command">
+      <created>1565086686003</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565086686003</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,7 +156,8 @@
     <MESSAGE value="Add basic discord connect&#10;Add some Tools" />
     <MESSAGE value="Adding postmethod to get webdata&#10;Adding some tools&#10;Editing bot configuration&#10;Get Bot token from a websource (security)" />
     <MESSAGE value="Adding &quot;Ping&quot; command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding &quot;Ping&quot; command" />
+    <MESSAGE value="Adding Command maps for every User and Bot to allow single commands for a group&#10;Adding Config command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Command maps for every User and Bot to allow single commands for a group&#10;Adding Config command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -160,6 +166,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/listeners/CommandListener.java</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/core/Main.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,6 +4,8 @@ import commands.cmdConfig;
 import commands.cmdPing;
 import listeners.CommandListener;
 import net.dv8tion.jda.core.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import utils.Tools;
 import utils.UrlData;
 
@@ -25,6 +27,27 @@ public class Main {
         //Sende die Postdaten an die Adresse und verarbeite den Inhalt in der Variabe.
         String DiscordToken = "";
         DiscordToken = UrlData.SendPost(Tools.buildCustomPhpUrl("actions.php"), "getConfig", UrlParams);
+
+
+        //TEST für Json Not final.
+        String restresponse = UrlData.getPlainSite(Tools.buildCustomPhpUrl("jsontest.php"));
+        JSONArray jsonarray = new JSONArray(restresponse);
+        for (int i = 0; i < jsonarray.length(); i++) {
+            JSONObject jsonobject = jsonarray.getJSONObject(i);
+            String username= jsonobject.getString("username");
+            String user_fname= jsonobject.getString("user_fname");
+            String user_work= jsonobject.getString("user_work");
+        }
+
+
+
+
+
+
+
+
+
+
 
         //Erstelle Discord Bot und anschließenden start.
         builder = new JDABuilder(AccountType.BOT);

@@ -5,8 +5,19 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+/**
+ *  Die statische Klasse für Aufgaben die mit Webdaten arbeitet.
+ */
 public class UrlData {
 
+    /**
+     *  Öffnet eine Werbseite und sendet Post Daten an diese. Gibt darauf den Inhalt zurück.
+     *
+     * @param pUrl Die Webseite die benutzt werden soll.
+     * @param action Die Aktion unter $_POST['action'] was gesendet wird.
+     * @param urlParams Die Parameter die gesendet werden sollen. Verwendung als Map<String, String>. z.B Map<"getconfig", "yes"> ist "getconfig=yes" als Post Parameter.
+     * @return Die zurückgegebene Inhalt der Webseite.
+     */
     public static String SendPost(String pUrl, String action, Map<String,String> urlParams) throws Exception {
 
         URL url = new URL(pUrl);
@@ -47,4 +58,26 @@ public class UrlData {
 
         return sb.toString();
     }
+
+
+    /**
+     * Öffnet eine HTTP Verindung zu einer Webseite und liest den Inhalt aus.
+     *
+     * @param pUrl Die Url der Webseite die aufgerufen werden soll.
+     * @return Der Inhalt der Webseite.
+     */
+    public static String getPlainSite(String pUrl) throws Exception
+    {
+        URL url = new URL(pUrl);
+
+        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+        Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
+
+        StringBuilder sb = new StringBuilder();
+        for (int c; (c = in.read()) >= 0;)
+            sb.append((char)c);
+
+        return sb.toString();
+    }
+
 }
