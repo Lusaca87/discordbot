@@ -7,15 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdBotRestart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdRestart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/UrlData.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565183769949</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Tool redesign&#10;Adding bot class&#10;Adding bot restart function">
+      <created>1565290192089</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1565290192089</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,16 +192,12 @@
     <MESSAGE value="Adding Command maps for every User and Bot to allow single commands for a group&#10;Adding Config command" />
     <MESSAGE value="Adding JSON parser for PHP website data.&#10;Adding UrlData.getPlainSite to get website without postdata." />
     <MESSAGE value="Redesign&#10;Adding Controll by Roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redesign&#10;Adding Controll by Roles" />
+    <MESSAGE value="Tool redesign&#10;Adding bot class&#10;Adding bot restart function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tool redesign&#10;Adding bot class&#10;Adding bot restart function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdRestart.java</url>
           <line>12</line>
@@ -207,8 +205,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java</url>
-          <line>121</line>
+          <line>118</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

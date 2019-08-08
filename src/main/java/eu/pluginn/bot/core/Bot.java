@@ -1,9 +1,6 @@
 package eu.pluginn.bot.core;
 
-import eu.pluginn.bot.commands.cmdBotRestart;
-import eu.pluginn.bot.commands.cmdConfig;
-import eu.pluginn.bot.commands.cmdPing;
-import eu.pluginn.bot.commands.cmdRestart;
+import eu.pluginn.bot.commands.*;
 import eu.pluginn.bot.listeners.CommandListener;
 import eu.pluginn.bot.utils.Tools;
 import net.dv8tion.jda.core.AccountType;
@@ -188,6 +185,10 @@ public class Bot {
 
     private static void addCommands()
     {
+        //MUSTHAVE COMMAND
+        commandHandler.commands.put("confirm", new cmdConfirm());
+
+
         commandHandler.commands.put("ping", new cmdPing());
         commandHandler.commands.put("config", new cmdConfig());
         commandHandler.commands.put("restart", new cmdRestart());

@@ -14,75 +14,96 @@ public class CommandListener extends ListenerAdapter {
         boolean isAllowedforBot = false;
         String discCommand = "";
 
+        String[] splitBeheaded = event.getMessage().getContentRaw().split(" ");
+        discCommand = splitBeheaded[0];
+
         if(event.getMessage().getContentRaw().startsWith(Bot.getPrefix()))
         {
-            String[] splitBeheaded = event.getMessage().getContentRaw().split(" ");
-            discCommand = splitBeheaded[0];
-            String Userid = event.getAuthor().getId();
-
-            if(Bot.getAllowedBotCommands().containsKey(discCommand))
+            if(event.getChannelType().toString().equals("PRIVATE")  && discCommand.equals("!confirm"))
             {
-                isAllowedforBot = true;
-                isAllowed = false;
-            }else if(Bot.getAllowedUserCommands().containsKey(discCommand))
-            {
-                isAllowedforBot = false;
-                isAllowed = true;
-            }else if(Bot.getAllowedStaffCommands().containsKey(discCommand))
-            {
-
-                //StaffLeitung
-                for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570426135248897")))
+                if (event.getMessage().getContentRaw().startsWith(Bot.getPrefix()) && !event.getMessage().getAuthor().getId().equals(event.getJDA().getSelfUser().getId()))
                 {
-                    if(memberList.getUser().getId().contains(Userid))
-                    {
-                        isAllowed = true;
-                        isAllowedforBot = false;
-                        break;
+                    try {
+                        commandHandler.handleCommand(commandHandler.parser.parse(event.getMessage().getContentRaw(), event));
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 
-                //CommunityLeitung
-                for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570183838564352")))
-                {
-                    if(memberList.getUser().getId().contains(Userid))
-                    {
-                        isAllowed = true;
-                        isAllowedforBot = false;
-                        break;
-                    }
-                }
-            }else if(Bot.getAllowedAdminCommands().containsKey(discCommand))
+
+               // String[] splitBeheaded_p = event.getMessage().getContentRaw().split(" ");
+              //  discCommand = splitBeheaded_p[0];
+              //  if(discCommand.contains("!confirm"))
+              //  {
+
+              //  }
+             //   String Token = splitBeheaded_p[1];
+
+
+
+            }else if(event.getChannelType().toString().equals("TEXT"))
             {
-                //CommunityLeitung
-                for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570183838564352")))
+                if(!discCommand.equals("!confirm"))
                 {
-                    if(memberList.getUser().getId().contains(Userid))
+                    String Userid = event.getAuthor().getId();
+
+                    if(Bot.getAllowedBotCommands().containsKey(discCommand))
                     {
-                        isAllowed = true;
+                        isAllowedforBot = true;
+                        isAllowed = false;
+                    }else if(Bot.getAllowedUserCommands().containsKey(discCommand))
+                    {
                         isAllowedforBot = false;
-                        break;
+                        isAllowed = true;
+                    }else if(Bot.getAllowedStaffCommands().containsKey(discCommand))
+                    {
+
+                        //StaffLeitung
+                        for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570426135248897")))
+                        {
+                            if(memberList.getUser().getId().contains(Userid))
+                            {
+                                isAllowed = true;
+                                isAllowedforBot = false;
+                                break;
+                            }
+                        }
+
+                        //CommunityLeitung
+                        for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570183838564352")))
+                        {
+                            if(memberList.getUser().getId().contains(Userid))
+                            {
+                                isAllowed = true;
+                                isAllowedforBot = false;
+                                break;
+                            }
+                        }
+                    }else if(Bot.getAllowedAdminCommands().containsKey(discCommand))
+                    {
+                        //CommunityLeitung
+                        for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570183838564352")))
+                        {
+                            if(memberList.getUser().getId().contains(Userid))
+                            {
+                                isAllowed = true;
+                                isAllowedforBot = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    splitBeheaded = null;
+                    discCommand = null;
+
+                    //Erlaubt dem BotOwner alle Befehle.
+                    if(event.getAuthor().getId().equals(Bot.getBotOwnerID()))
+                    {
+                        isAllowedforBot = false;
+                        isAllowed = true;
                     }
                 }
             }
-
-
-
-
-            splitBeheaded = null;
-            discCommand = null;
-
-
-
-
-            //Erlaubt dem BotOwner alle Befehle.
-            if(event.getAuthor().getId().equals(Bot.getBotOwnerID()))
-            {
-                isAllowedforBot = false;
-                isAllowed = true;
-            }
-
-
         }
 
 
