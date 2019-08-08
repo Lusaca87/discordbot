@@ -7,10 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +50,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CodesBay/NightOut" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../netlegendsbot" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -167,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565290192089</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add Confirm command and make it as wisper only command">
+      <created>1565292373372</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1565292373372</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,7 +199,8 @@
     <MESSAGE value="Adding JSON parser for PHP website data.&#10;Adding UrlData.getPlainSite to get website without postdata." />
     <MESSAGE value="Redesign&#10;Adding Controll by Roles" />
     <MESSAGE value="Tool redesign&#10;Adding bot class&#10;Adding bot restart function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tool redesign&#10;Adding bot class&#10;Adding bot restart function" />
+    <MESSAGE value="Add Confirm command and make it as wisper only command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Confirm command and make it as wisper only command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -205,7 +212,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java</url>
-          <line>118</line>
+          <line>119</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

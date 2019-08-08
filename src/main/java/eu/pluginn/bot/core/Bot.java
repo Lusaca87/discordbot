@@ -7,6 +7,7 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
+import net.dv8tion.jda.core.events.Event;
 
 import javax.security.auth.login.LoginException;
 import java.util.HashMap;
@@ -201,6 +202,11 @@ public class Bot {
         allowedUserCommands.clear();
         allowedStaffCommands.clear();
         allowedAdminCommands.clear();
+    }
+
+    public static void SendPrivateMessage(String pMessage, String UserID, Event event)
+    {
+        event.getJDA().getUserById(UserID).openPrivateChannel().queue((privateChannel -> {privateChannel.sendMessage(pMessage).queue();}));
     }
 
 
