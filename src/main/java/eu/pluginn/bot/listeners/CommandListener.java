@@ -4,7 +4,6 @@ import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import eu.pluginn.bot.core.*;
-import eu.pluginn.bot.utils.Tools;
 
 public class CommandListener extends ListenerAdapter {
 
@@ -15,21 +14,21 @@ public class CommandListener extends ListenerAdapter {
         boolean isAllowedforBot = false;
         String discCommand = "";
 
-        if(event.getMessage().getContentRaw().startsWith(Tools.getPrefix()))
+        if(event.getMessage().getContentRaw().startsWith(Bot.getPrefix()))
         {
             String[] splitBeheaded = event.getMessage().getContentRaw().split(" ");
             discCommand = splitBeheaded[0];
             String Userid = event.getAuthor().getId();
 
-            if(Tools.getAllowedBotCommands().containsKey(discCommand))
+            if(Bot.getAllowedBotCommands().containsKey(discCommand))
             {
                 isAllowedforBot = true;
                 isAllowed = false;
-            }else if(Tools.getAllowedUserCommands().containsKey(discCommand))
+            }else if(Bot.getAllowedUserCommands().containsKey(discCommand))
             {
                 isAllowedforBot = false;
                 isAllowed = true;
-            }else if(Tools.getAllowedStaffCommands().containsKey(discCommand))
+            }else if(Bot.getAllowedStaffCommands().containsKey(discCommand))
             {
 
                 //StaffLeitung
@@ -53,7 +52,7 @@ public class CommandListener extends ListenerAdapter {
                         break;
                     }
                 }
-            }else if(Tools.getAllowedAdminCommands().containsKey(discCommand))
+            }else if(Bot.getAllowedAdminCommands().containsKey(discCommand))
             {
                 //CommunityLeitung
                 for (Member memberList : event.getGuild().getMembersWithRoles(event.getJDA().getRoleById("585570183838564352")))
@@ -77,7 +76,7 @@ public class CommandListener extends ListenerAdapter {
 
 
             //Erlaubt dem BotOwner alle Befehle.
-            if(event.getAuthor().getId().equals(Tools.getBotOwnerID()))
+            if(event.getAuthor().getId().equals(Bot.getBotOwnerID()))
             {
                 isAllowedforBot = false;
                 isAllowed = true;
@@ -89,7 +88,8 @@ public class CommandListener extends ListenerAdapter {
 
         if (event.getChannelType().toString().contains("TEXT") && !isAllowed && isAllowedforBot)
         {
-            if (event.getMessage().getContentRaw().startsWith(Tools.getPrefix()) && event.getMessage().getAuthor().getId().equals(event.getJDA().getSelfUser().getId()))
+            event.getMessage().getChannel().deleteMessageById(event.getMessage().getId()).queue();
+            if (event.getMessage().getContentRaw().startsWith(Bot.getPrefix()) && event.getMessage().getAuthor().getId().equals(event.getJDA().getSelfUser().getId()))
             {
                 try {
                     commandHandler.handleCommand(commandHandler.parser.parse(event.getMessage().getContentRaw(), event));
@@ -102,7 +102,7 @@ public class CommandListener extends ListenerAdapter {
         }
         else if (event.getChannelType().toString().contains("TEXT") && isAllowed && !isAllowedforBot)
         {
-            if (event.getMessage().getContentRaw().startsWith(Tools.getPrefix()) && !event.getMessage().getAuthor().getId().equals(event.getJDA().getSelfUser().getId()))
+            if (event.getMessage().getContentRaw().startsWith(Bot.getPrefix()) && !event.getMessage().getAuthor().getId().equals(event.getJDA().getSelfUser().getId()))
             {
                 try {
                     commandHandler.handleCommand(commandHandler.parser.parse(event.getMessage().getContentRaw(), event));
