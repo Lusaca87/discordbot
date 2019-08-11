@@ -8,12 +8,20 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
 /**
  * Eine statische Klasse die verschiene Funktionen beinhaltet.
+ *
+ * Copyright Delta
+ *
+ * Kontakt: christian.delta@gmx.net
  */
 public class Tools {
 
@@ -153,5 +161,43 @@ public class Tools {
 
         return sb.toString();
     }
+
+    /**
+     * Eine Methode um den Unix Timstamp zu erzeugen.
+     * @return Gibt die aktuelle Zeit als Unix Timestamp zurück.
+     */
+    public static long getUnixTimestamp()
+    {
+        return System.currentTimeMillis() / 1000L;
+    }
+
+    /**
+     * Eine Methode um die aktuelle Uhrzeit zu erzeugen.
+     *
+     * @return Gibt die Uhrzeit als Std:Min:Sek zurück.
+     */
+    public static String getCurrentTime()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        ZonedDateTime zdt = ZonedDateTime.now();
+        java.util.Date date = java.util.Date.from( zdt.toInstant() );
+
+        return sdf.format(date.getTime());
+    }
+
+
+    /**
+     * Eine Methode um das jetzige Datum zu generieren.
+     *
+     * @return Gibt das aktuelle Datum als "Tag.Monat.Jahr" zurück.
+     */
+    public static String getCurrentDate()
+    {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate localDate = LocalDate.now();
+
+        return dtf.format(localDate);
+    }
+
 
 }

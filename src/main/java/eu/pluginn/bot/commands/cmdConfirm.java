@@ -37,10 +37,10 @@ public class cmdConfirm implements Command {
             if (tempArray[0].equals("done")) {
                 String ForenUserName = tempArray[1];
                 Member member = event.getJDA().getGuildById("585570094265139223").getMemberById(event.getAuthor().getId());
-                Role role = event.getJDA().getRoleById("585571208163229737");
+                Role role = event.getJDA().getRoleById("609833008773464085");
                 event.getJDA().getGuildById("585570094265139223").getController().addSingleRoleToMember(member, role).complete();
                 String WisperMessage = String.format("Dein Forenbenutzername '%s' wurde mit diesem Discordkonto erfolgreich verknüpft. Vielen Dank", ForenUserName);
-                Bot.SendPrivateMessage(WisperMessage, event.getAuthor().getId(), event);
+                Bot.SendPrivateMessage(WisperMessage, event.getAuthor().getId());
             }
         }
     }

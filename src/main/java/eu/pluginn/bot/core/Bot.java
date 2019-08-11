@@ -2,12 +2,12 @@ package eu.pluginn.bot.core;
 
 import eu.pluginn.bot.commands.*;
 import eu.pluginn.bot.listeners.CommandListener;
+import eu.pluginn.bot.listeners.Moderation;
 import eu.pluginn.bot.utils.Tools;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.events.Event;
 
 import javax.security.auth.login.LoginException;
 import java.util.HashMap;
@@ -29,6 +29,9 @@ public class Bot {
 
     private static JDABuilder builder = null;
     private static JDA jda = null;
+
+    private static boolean LogJoinLeaveEvents = false;
+
 
 
     public static void addBotCommand(String command)
@@ -113,10 +116,31 @@ public class Bot {
         builder = pBuilder;
     }
 
+    private static void getBotConfig()
+    {
+        setLogJoinLeaveEvents(true);
+
+    }
+
+    // Getter
+    public static boolean getLogJoinLeaveEvents()
+    {
+        return LogJoinLeaveEvents;
+    }
+
+
+    // Setter
+    public static void setLogJoinLeaveEvents(boolean logEvents)
+    {
+        LogJoinLeaveEvents = logEvents;
+    }
 
 
     public static void restart(boolean forceRestart) throws Exception
     {
+
+        getBotConfig();
+
         JDA botJda = getJda();
         if(botJda != null)
         {
@@ -160,6 +184,7 @@ public class Bot {
         addBotCommand(String.format("%sconfig", Bot.getPrefix()));
         addBotCommand(String.format("%sforceBotRestart", Bot.getPrefix()));
         addAdminCommand(String.format("%srestart", Bot.getPrefix()));
+        addAdminCommand(String.format("%sclear", Bot.getPrefix()));
 
 
         addListeners();
@@ -182,6 +207,7 @@ public class Bot {
     private static void addListeners()
     {
         getBuilder().addEventListener(new CommandListener());
+        getBuilder().addEventListener(new Moderation());
     }
 
     private static void addCommands()
@@ -194,6 +220,7 @@ public class Bot {
         commandHandler.commands.put("config", new cmdConfig());
         commandHandler.commands.put("restart", new cmdRestart());
         commandHandler.commands.put("forceBotRestart", new cmdBotRestart());
+        commandHandler.commands.put("clear", new cmdClear());
     }
 
     private static void deleteAllCommands()
@@ -204,9 +231,12 @@ public class Bot {
         allowedAdminCommands.clear();
     }
 
-    public static void SendPrivateMessage(String pMessage, String UserID, Event event)
+    public static void SendPrivateMessage(String pMessage, String UserID)
     {
-        event.getJDA().getUserById(UserID).openPrivateChannel().queue((privateChannel -> {privateChannel.sendMessage(pMessage).queue();}));
+            Bot.getJda().getUserById(UserID).openPrivateChannel().queue(privateChannel ->
+            {
+                privateChannel.sendMessage(pMessage).queue();
+            });
     }
 
 
