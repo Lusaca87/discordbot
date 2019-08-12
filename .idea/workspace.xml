@@ -6,14 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java" afterDir="false" />
+    <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="Add moderation options and Welcomemessage&#10;Add !clear command for moderation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTwitch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +56,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -185,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565298750816</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add moderation options and Welcomemessage&#10;Add !clear command for moderation">
+      <created>1565538508158</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1565538508158</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,7 +217,8 @@
     <MESSAGE value="Tool redesign&#10;Adding bot class&#10;Adding bot restart function" />
     <MESSAGE value="Add Confirm command and make it as wisper only command" />
     <MESSAGE value="Complete confirm command with websitecheck" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete confirm command with websitecheck" />
+    <MESSAGE value="Add moderation options and Welcomemessage&#10;Add !clear command for moderation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add moderation options and Welcomemessage&#10;Add !clear command for moderation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -235,7 +240,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java</url>
-          <line>15</line>
+          <line>23</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>

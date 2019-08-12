@@ -8,6 +8,9 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
+import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.core.entities.Role;
+import net.dv8tion.jda.core.events.Event;
 
 import javax.security.auth.login.LoginException;
 import java.util.HashMap;
@@ -20,6 +23,8 @@ public class Bot {
     private static String prefix = "!";
 
     private static String botOwnerID =  "217644884671201281";
+
+    private static String discordID =  "585570094265139223";
 
     private static Map<String, String> allowedBotCommands = new HashMap<>();
     private static Map<String, String> allowedUserCommands = new HashMap<>();
@@ -96,7 +101,7 @@ public class Bot {
 
     public static String getBotOwnerID() { return botOwnerID; }
 
-    private static JDA getJda()
+    public static JDA getJda()
     {
         return jda;
     }
@@ -111,7 +116,7 @@ public class Bot {
         return builder;
     }
 
-    public static void setBuilder(JDABuilder pBuilder)
+    private static void setBuilder(JDABuilder pBuilder)
     {
         builder = pBuilder;
     }
@@ -127,6 +132,7 @@ public class Bot {
     {
         return LogJoinLeaveEvents;
     }
+    public static String getDiscordID() { return  discordID; }
 
 
     // Setter
@@ -134,6 +140,7 @@ public class Bot {
     {
         LogJoinLeaveEvents = logEvents;
     }
+    public static void setDiscordID(String discServerID) { discordID = discServerID; }
 
 
     public static void restart(boolean forceRestart) throws Exception
@@ -181,8 +188,12 @@ public class Bot {
 
         //Setze die Commands.
         addUserCommand(String.format("%sping", Bot.getPrefix()));
+
         addBotCommand(String.format("%sconfig", Bot.getPrefix()));
         addBotCommand(String.format("%sforceBotRestart", Bot.getPrefix()));
+
+        addStaffCommand(String.format("%stwitch", Bot.getPrefix()));
+
         addAdminCommand(String.format("%srestart", Bot.getPrefix()));
         addAdminCommand(String.format("%sclear", Bot.getPrefix()));
 
@@ -221,6 +232,7 @@ public class Bot {
         commandHandler.commands.put("restart", new cmdRestart());
         commandHandler.commands.put("forceBotRestart", new cmdBotRestart());
         commandHandler.commands.put("clear", new cmdClear());
+        commandHandler.commands.put("twitch", new cmdTwitch());
     }
 
     private static void deleteAllCommands()
@@ -237,6 +249,63 @@ public class Bot {
             {
                 privateChannel.sendMessage(pMessage).queue();
             });
+    }
+
+    public static String getPlainID(String ID) {
+        String DiscordID = "";
+        if (ID.startsWith("<@!") && ID.endsWith(">")) {
+            String Temp = ID;
+            Temp = Temp.substring(0, ID.length() - 1);
+            Temp = Temp.substring(3, Temp.length());
+            DiscordID = Temp;
+            Temp = null;
+        }
+        else if (ID.startsWith("<@&") && ID.endsWith(">"))
+        {
+            String Temp = ID;
+            Temp = Temp.substring(0, ID.length() - 1);
+            Temp = Temp.substring(3, Temp.length());
+            DiscordID = Temp;
+            Temp = null;
+        }
+        else if (ID.startsWith("<@") && ID.endsWith(">"))
+        {
+            String Temp = ID;
+            Temp = Temp.substring(0, ID.length() - 1);
+            Temp = Temp.substring(2, Temp.length());
+            DiscordID = Temp;
+            Temp = null;
+        }
+        else
+        {
+            DiscordID = "none";
+        }
+
+
+        return DiscordID;
+    }
+
+    public static boolean isUserInRole(String discordUserID, String discordRoleIDToCheck)
+    {
+       return Bot.getJda().getGuildById(Bot.getDiscordID()).getMemberById(discordUserID).getRoles().contains(Bot.getJda().getRoleById(discordRoleIDToCheck));
+    }
+
+    public static void addRoleToUser(String UserID, String RoleID, Event event)
+    {
+        //boolean status = false;
+        Member member = event.getJDA().getGuildById(Bot.getDiscordID()).getMemberById(UserID);
+        Role role = event.getJDA().getRoleById(RoleID);
+        event.getJDA().getGuildById(Bot.getDiscordID()).getController().addSingleRoleToMember(member, role).complete();
+        //return true;
+    }
+
+    public static void deleteRoleFromUser(String UserID, String RoleID, Event event)
+    {
+        //boolean status = false;
+        Member member = event.getJDA().getGuildById(Bot.getDiscordID()).getMemberById(UserID);
+        Role role = event.getJDA().getRoleById(RoleID);
+        event.getJDA().getGuildById(Bot.getDiscordID()).getController().removeSingleRoleFromMember(member, role).complete();
+        //return true;
     }
 
 

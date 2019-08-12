@@ -13,7 +13,11 @@ public class cmdClear implements Command {
     @Override
     public void action(String[] args, MessageReceivedEvent event) throws Exception {
 
-        if(args.length == 1)
+        if(args.length > 1 || args.length == 0 )
+        {
+            event.getTextChannel().sendMessage("Falscher Wert. !clear <Zahl>").queue();
+
+        }else if(args.length == 1)
         {
             try
             {
@@ -39,6 +43,7 @@ public class cmdClear implements Command {
 
     @Override
     public String help(MessageReceivedEvent event) {
+        event.getTextChannel().sendMessage("!clear <Zahl>").queue();
         return null;
     }
 }
