@@ -6,11 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="Add moderation options and Welcomemessage&#10;Add !clear command for moderation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTwitch.java" afterDir="false" />
+    <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdDie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DiscordBot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DiscordBot.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +53,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../netlegendsbot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

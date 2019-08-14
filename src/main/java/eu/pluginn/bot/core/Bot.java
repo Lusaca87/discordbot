@@ -32,6 +32,11 @@ public class Bot {
     private static Map<String, String> allowedStaffCommands = new HashMap<>();
     private static Map<String, String> allowedAdminCommands = new HashMap<>();
 
+    private static Map<String, String> nonModeratedChannel = new HashMap<>();
+
+
+
+
     private static JDABuilder builder = null;
     private static JDA jda = null;
 
@@ -59,7 +64,10 @@ public class Bot {
         allowedAdminCommands.put(command, "yes");
     }
 
-
+    public static void addNonModeratedChannel(String command)
+    {
+        nonModeratedChannel.put(command, "yes");
+    }
 
     public static String getHomepageUrl()
     {
@@ -98,6 +106,12 @@ public class Bot {
     {
         return allowedAdminCommands;
     }
+
+    public static Map<String, String> getNonModeratedChannel()
+    {
+        return nonModeratedChannel;
+    }
+
 
     public static String getBotOwnerID() { return botOwnerID; }
 
@@ -198,6 +212,21 @@ public class Bot {
         addAdminCommand(String.format("%sclear", Bot.getPrefix()));
 
 
+        addNonModeratedChannel("603923721861726220"); //Team Wichtig
+        addNonModeratedChannel("603923742703353856"); // Team Talk
+        addNonModeratedChannel("603923769920323585"); // Moderation
+        addNonModeratedChannel("609848340204617768"); // Moderator talk
+        addNonModeratedChannel("603923795299794944"); // Support
+        addNonModeratedChannel("609849377028178085"); // Support talk
+        addNonModeratedChannel("603923850014752807"); // Foren Post (Admin)
+        addNonModeratedChannel("608175625290645504"); // Developement
+        addNonModeratedChannel("608191656243757057"); // Bot-Settings
+        addNonModeratedChannel("609865377283047435"); // Reports
+        addNonModeratedChannel("609865389379289092"); // Server-Logs
+
+
+
+
         addListeners();
         addCommands();
 
@@ -233,6 +262,7 @@ public class Bot {
         commandHandler.commands.put("forceBotRestart", new cmdBotRestart());
         commandHandler.commands.put("clear", new cmdClear());
         commandHandler.commands.put("twitch", new cmdTwitch());
+        commandHandler.commands.put("die", new cmdDie());
     }
 
     private static void deleteAllCommands()
