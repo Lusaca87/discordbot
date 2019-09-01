@@ -31,17 +31,18 @@ public class CommandListener extends ListenerAdapter {
                 }
 
 
-               // String[] splitBeheaded_p = event.getMessage().getContentRaw().split(" ");
-              //  discCommand = splitBeheaded_p[0];
-              //  if(discCommand.contains("!confirm"))
-              //  {
-
-              //  }
-             //   String Token = splitBeheaded_p[1];
-
-
-
-            }else if(event.getChannelType().toString().equals("TEXT"))
+            }else if(event.getChannelType().toString().equals("PRIVATE")  && discCommand.equals("!ticket"))
+            {
+                if (event.getMessage().getContentRaw().startsWith(Bot.getPrefix()) && !event.getMessage().getAuthor().getId().equals(event.getJDA().getSelfUser().getId()))
+                {
+                    try {
+                        commandHandler.handleCommand(commandHandler.parser.parse(event.getMessage().getContentRaw(), event));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            else if(event.getChannelType().toString().equals("TEXT"))
             {
                 if(!discCommand.equals("!confirm"))
                 {

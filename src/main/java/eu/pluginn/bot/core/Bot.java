@@ -202,6 +202,7 @@ public class Bot {
 
         //Setze die Commands.
         addUserCommand(String.format("%sping", Bot.getPrefix()));
+        addUserCommand(String.format("%sticket", Bot.getPrefix()));
 
         addBotCommand(String.format("%sconfig", Bot.getPrefix()));
         addBotCommand(String.format("%sforceBotRestart", Bot.getPrefix()));
@@ -263,6 +264,7 @@ public class Bot {
         commandHandler.commands.put("clear", new cmdClear());
         commandHandler.commands.put("twitch", new cmdTwitch());
         commandHandler.commands.put("die", new cmdDie());
+        commandHandler.commands.put("ticket", new cmdTicket());
     }
 
     private static void deleteAllCommands()

@@ -20,14 +20,12 @@ public class cmdConfirm implements Command {
 
         String result = "";
         String combinedID = String.format("%s|||%s", event.getAuthor().getId(), event.getAuthor().getAsTag());
-        System.out.println("T:" + combinedID);
 
         Map<String, String> urlParam = new HashMap<>();
         urlParam.put("username", args[0]);
         urlParam.put("discordid", combinedID);
 
         result = Tools.sendPost(Bot.buildCustomPhpUrl("confirm.php"), "confirmDiscord", urlParam);
-        System.out.println("Result: " + result);
 
         if(!result.equals("")) {
             String[] tempArray;
