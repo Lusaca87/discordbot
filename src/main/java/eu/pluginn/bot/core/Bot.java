@@ -287,7 +287,7 @@ public class Bot {
     private static void addCommands()
     {
         //MUSTHAVE COMMAND
-        commandHandler.commands.put("confirm", new cmdConfirm());
+        //commandHandler.commands.put("confirm", new cmdConfirm()); //Deaktiviert, weil Oauth System über Webseite.
 
 
         commandHandler.commands.put("ping", new cmdPing());
