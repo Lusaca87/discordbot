@@ -2,7 +2,7 @@ package eu.pluginn.bot.commands;
 
 import eu.pluginn.bot.core.Bot;
 import eu.pluginn.bot.utils.Tools;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -26,9 +26,6 @@ public class cmdTicket implements Command {
                 messageToSend = String.format("%s%s ", messageToSend, args[i]);
             }
 
-            //smessageToSend = messageToSend.replace("'", "\\'");
-            //messageToSend = messageToSend.replace("\"", "\\\"");
-
             String UserName = Optional.ofNullable(event.getJDA().getGuildById(Bot.getDiscordID()).getMemberById(event.getAuthor().getId()).getNickname()).orElse(event.getAuthor().getName());
             String UserTag = event.getAuthor().getAsTag();
             String UserID = event.getAuthor().getId();
@@ -41,7 +38,7 @@ public class cmdTicket implements Command {
 
             Map<String, String> urlParams = new HashMap<>();
             urlParams.put("discParams", jsonToSend.toString());
-            String ticketResult = Tools.sendPost("http://api.plug-inn.eu/actions.php", "discsupport", urlParams);
+            String ticketResult = Tools.sendPost("https://api.plug-inn.eu/actions.php", "discsupport", urlParams);
 
             if(ticketResult.equals("supportDone"))
             {

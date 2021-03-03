@@ -1,0 +1,6 @@
+Hallo %s, 
+
+Dein Whitelist-Antrag konnte zwischenzeitlich von unserem Team geprüft werden, doch leider müssen wir Dir mitteilen, dass wir Dich nicht der Whitelist zufügen konnten. Dies kann mehrere Gründe haben, z.B. waren Deine Angaben nicht vollständig, die Voraussetzungen sind noch nicht erfüllt oder der Server ist aktuell voll. Bitte wende Dich für nähere Informationen an unseren Support. Vielen Dank.
+
+Hier ist nochmals Deine Nachricht, die Du uns geschickt hast: 
+```%s```

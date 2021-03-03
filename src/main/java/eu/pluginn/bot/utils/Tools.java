@@ -1,20 +1,22 @@
 package eu.pluginn.bot.utils;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import eu.pluginn.bot.core.Bot;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
+import org.json.JSONObject;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Eine statische Klasse die verschiene Funktionen beinhaltet.
@@ -197,6 +199,87 @@ public class Tools {
         LocalDate localDate = LocalDate.now();
 
         return dtf.format(localDate);
+    }
+
+
+    /**
+     * Bearbeitet einen internen Post im Discord und bearbeitet die Nachricht wie vorhergesehen. Inkl Delay beim hinzufügen des Emoji (Ausserhalb des Bots keine Relevanz)
+     * @param webJson Das Json Objekt das die Ergebnise aus der Webseite enthält.
+     * @param event das interne Discord Event.
+     */
+    public static void handleWhiteList(JSONObject webJson, GuildMessageReactionAddEvent event)
+    {
+        JSONObject webJson2 = null;
+        String PrivateMessageToSend = null;
+        String UserNickname = "";
+
+        Map<String, String> urlParams = new HashMap<>();
+        urlParams.put("ModMessageID", webJson.getString("ModMessageID"));
+
+        try {
+            String webResult = Tools.sendPost(Bot.buildCustomPhpUrl("actions.php"), "closeWhielist", urlParams);
+            webJson2 = new JSONObject(webResult);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        urlParams.clear();
+
+        Member m = event.getJDA().getGuildById(Bot.getDiscordID()).retrieveMemberById(webJson2.getString("discordUserid")).complete();
+        UserNickname = Optional.ofNullable(m.getNickname()).orElse(m.getUser().getName());
+
+        switch (webJson.getString("whitelistStatus")){
+            case "yes":
+                PrivateMessageToSend = String.format(Tools.readFileLinebyLine("whiteListYes.txt"), UserNickname, webJson2.getString("origMessage"));
+                Bot.SendPrivateMessage(PrivateMessageToSend, webJson2.getString("discordUserid"));
+                event.getChannel().retrieveMessageById(event.getMessageId()).complete().editMessage(event.getChannel().retrieveMessageById(event.getMessageId()).complete().getContentRaw() + "\n\nAntrag genehmigt. \nBenutzer benachrichtigt. \nBearbeitet durch " + event.getMember().getAsMention() + " am " + Tools.getCurrentDate() + " um " + Tools.getCurrentTime()).queue();
+                event.getChannel().clearReactionsById(event.getMessageId()).delay(Duration.ofSeconds(1)).queue();
+                event.getChannel().addReactionById(event.getMessageId(), "U+26d4").delay(Duration.ofSeconds(2)).queue();
+            break;
+            case "wrongInfos":
+                PrivateMessageToSend = String.format(Tools.readFileLinebyLine("whiteListWrongInfos.txt"), UserNickname, webJson2.getString("origMessage"));
+                Bot.SendPrivateMessage(PrivateMessageToSend, webJson2.getString("discordUserid"));
+                event.getChannel().retrieveMessageById(event.getMessageId()).complete().editMessage(event.getChannel().retrieveMessageById(event.getMessageId()).complete().getContentRaw() + "\n\nFalsche Informationen angegeben. \nBenutzer benachrichtigt. \nBearbeitet durch " + event.getMember().getAsMention() + " am " + Tools.getCurrentDate() + " um " + Tools.getCurrentTime()).queue();
+                event.getChannel().clearReactionsById(event.getMessageId()).delay(Duration.ofSeconds(1)).queue();
+                event.getChannel().addReactionById(event.getMessageId(), "U+26d4").delay(Duration.ofSeconds(2)).queue();
+            break;
+
+            case "no":
+                PrivateMessageToSend = String.format(Tools.readFileLinebyLine("whiteListNo.txt"), UserNickname, webJson2.getString("origMessage"));
+                Bot.SendPrivateMessage(PrivateMessageToSend, webJson2.getString("discordUserid"));
+                event.getChannel().retrieveMessageById(event.getMessageId()).complete().editMessage(event.getChannel().retrieveMessageById(event.getMessageId()).complete().getContentRaw() + "\n\nAntrag abgelehnt. \nBenutzer benachrichtigt. \nBearbeitet durch " + event.getMember().getAsMention() + " am " + Tools.getCurrentDate() + " um " + Tools.getCurrentTime()).queue();
+                event.getChannel().clearReactionsById(event.getMessageId()).delay(Duration.ofSeconds(1)).queue();
+                event.getChannel().addReactionById(event.getMessageId(), "U+26d4").delay(Duration.ofSeconds(2)).queue();
+                break;
+        }
+        webJson2 = null;
+        PrivateMessageToSend = null;
+        UserNickname = "";
+        m = null;
+
+    }
+
+    /**
+     * Liest eine Datei Zeile für Zeile
+     * @param filename Der Dateiname inkl Pfad was gelesen werden soll.
+     * @return Der Inhalt der Datei als String.
+     */
+    public static String readFileLinebyLine(String filename)
+    {
+        String file = "";
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(filename));
+            String line = reader.readLine();
+            while (line != null) {
+                file = String.format("%s%s\n", file, line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return file;
     }
 
 

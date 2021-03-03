@@ -10,6 +10,7 @@ public class commandHandler {
     public static final commandParser parser = new commandParser();
     public static HashMap<String, Command> commands = new HashMap<>();
 
+
     public static void handleCommand(commandParser.commandContainer cmd) throws Exception {
 
         if (commands.containsKey(cmd.invoke)) {

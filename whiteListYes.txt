@@ -1,0 +1,6 @@
+Hallo %s, 
+
+Dein Whitelist-Antrag konnte zwischenzeitlich von unserem Team geprüft und bestätigt werden. Du bist nun auf der Whitelist - wir wünschen Dir viel Spass auf dem Server. Bitte denke daran, die Koordinaten Deiner Home-Base noch im jeweiligen Discord-Channel zu posten, sobald Du Dich niedergelassen hast. 
+
+Hier ist nochmals Deine Nachricht, die Du uns geschickt hast: 
+```%s```

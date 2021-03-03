@@ -5,18 +5,53 @@
       <artifact name="DiscordBot" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ae00f160-5b5a-425f-8830-5b215ab952b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTicket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdWhitelist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/DiscordBot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DiscordBot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discordbot.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdBotRestart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdBotRestart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdDie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdDie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdPing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdRestart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdRestart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTicket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTwitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTwitch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/commandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/commandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/commandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/commandParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/CommandListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/pluginn/bot/utils/Tools.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,31 +71,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="Y:\Java\pluginn\discordbot" />
-        <option value="Y:\Java\pluginn\discordbot\.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1OzyYpo5iwsRjl1Y8675YcjzuG5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ts3bot" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../discordbot/pom.xml" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -70,19 +101,7 @@
       <recent name="eu.pluginn.bot.utils" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DiscordBot">
     <configuration name="DiscordBot" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="eu.pluginn.bot.core.Main" />
       <module name="discordbot" />
@@ -90,7 +109,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JDA-4.2.0_212.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$MAVEN_REPOSITORY$/net/dv8tion/JDA/4.2.0_212/JDA-4.2.0_212.jar!/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.JDA-4.2.0_212.jar" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -101,6 +130,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564994769282</updated>
+      <workItem from="1574938257148" duration="571000" />
+      <workItem from="1576374101366" duration="1111000" />
+      <workItem from="1578811402467" duration="1290000" />
+      <workItem from="1579802162721" duration="1006000" />
+      <workItem from="1585428210700" duration="507000" />
+      <workItem from="1587531632211" duration="1959000" />
+      <workItem from="1588072327404" duration="625000" />
+      <workItem from="1588363149327" duration="919000" />
+      <workItem from="1588373159836" duration="1065000" />
     </task>
     <task id="LOCAL-00001" summary="Adding structure for commands&#10;Adding base structure">
       <created>1564997129484</created>
@@ -200,21 +238,30 @@
       <option name="project" value="LOCAL" />
       <updated>1565810602360</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update Confirm&#10;Add Ticket">
+      <created>1567332032124</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1567332032124</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding structure for commands&#10;Adding base structure" />
@@ -230,40 +277,46 @@
     <MESSAGE value="Complete confirm command with websitecheck" />
     <MESSAGE value="Add moderation options and Welcomemessage&#10;Add !clear command for moderation" />
     <MESSAGE value="Add moderation&#10;Add shutdowncommand" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add moderation&#10;Add shutdowncommand" />
+    <MESSAGE value="Update Confirm&#10;Add Ticket" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Confirm&#10;Add Ticket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdRestart.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdClear.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/core/Main.java</url>
           <line>5</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTicket.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java</url>
+          <line>238</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdTwitch.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdRestart.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/commands/cmdConfirm.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/eu/pluginn/bot/listeners/Moderation.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

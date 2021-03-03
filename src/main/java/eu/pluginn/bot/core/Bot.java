@@ -4,21 +4,27 @@ import eu.pluginn.bot.commands.*;
 import eu.pluginn.bot.listeners.CommandListener;
 import eu.pluginn.bot.listeners.Moderation;
 import eu.pluginn.bot.utils.Tools;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Role;
-import net.dv8tion.jda.core.events.Event;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.Event;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Bot {
 
-    private static String homepageUrl = "http://www.plug-inn.eu";
+    private static String homepageUrl = "https://www.plug-inn.eu";
     private static String Splitter = "Ξ";
     private static String prefix = "!";
 
@@ -33,6 +39,8 @@ public class Bot {
     private static Map<String, String> allowedAdminCommands = new HashMap<>();
 
     private static Map<String, String> nonModeratedChannel = new HashMap<>();
+
+    private static List<GatewayIntent> gatewayIntents;
 
 
 
@@ -112,6 +120,8 @@ public class Bot {
         return nonModeratedChannel;
     }
 
+    public static List<GatewayIntent> getGatewayIntents() { return gatewayIntents; }
+    public static void setGatewayIntents(List<GatewayIntent> _gatewayIntents) { gatewayIntents = _gatewayIntents; }
 
     public static String getBotOwnerID() { return botOwnerID; }
 
@@ -160,7 +170,22 @@ public class Bot {
     public static void restart(boolean forceRestart) throws Exception
     {
 
+
+
+
         getBotConfig();
+
+        RuntimeMXBean runtimeBean = ManagementFactory.getRuntimeMXBean();
+        String jvmName = runtimeBean.getName();
+        long pid = Long.valueOf(jvmName.split("@")[0]);
+
+
+        FileWriter fileWriter = new FileWriter("discordbot.pid");
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        printWriter.print(pid);
+        printWriter.close();
+
+
 
         JDA botJda = getJda();
         if(botJda != null)
@@ -190,8 +215,17 @@ public class Bot {
         JDABuilder botBuilder = getBuilder();
         if(botBuilder == null)
         {
-            botBuilder = new JDABuilder(AccountType.BOT);
-            botBuilder.setToken(discordToken);
+            if(getGatewayIntents() == null)
+            {
+                List<GatewayIntent> intents = new ArrayList<>();
+                setGatewayIntents(intents);
+                intents = null;
+            }
+            getGatewayIntents().add(GatewayIntent.GUILD_MEMBERS);
+            botBuilder = JDABuilder.createDefault(discordToken); // JDABuilder(AccountType.BOT);
+            //botBuilder.setToken(discordToken);
+            botBuilder.enableIntents(getGatewayIntents());
+            //botBuilder.
             botBuilder.setAutoReconnect(true);
             botBuilder.setStatus(OnlineStatus.ONLINE);
             setBuilder(botBuilder);
@@ -203,6 +237,7 @@ public class Bot {
         //Setze die Commands.
         addUserCommand(String.format("%sping", Bot.getPrefix()));
         addUserCommand(String.format("%sticket", Bot.getPrefix()));
+        addUserCommand(String.format("%swl", Bot.getPrefix()));
 
         addBotCommand(String.format("%sconfig", Bot.getPrefix()));
         addBotCommand(String.format("%sforceBotRestart", Bot.getPrefix()));
@@ -221,12 +256,10 @@ public class Bot {
         addNonModeratedChannel("609849377028178085"); // Support talk
         addNonModeratedChannel("603923850014752807"); // Foren Post (Admin)
         addNonModeratedChannel("608175625290645504"); // Developement
-        addNonModeratedChannel("608191656243757057"); // Bot-Settings
+        //addNonModeratedChannel("608191656243757057"); // Bot-Settings
         addNonModeratedChannel("609865377283047435"); // Reports
         addNonModeratedChannel("609865389379289092"); // Server-Logs
-
-
-
+        addNonModeratedChannel("622542905088671744"); // Comm-Leitung Intern
 
         addListeners();
         addCommands();
@@ -235,20 +268,20 @@ public class Bot {
 
             if(botJda == null)
             {
-                botJda = builder.buildBlocking();
+                botJda = builder.build();
             }
             setJda(botJda);
         } catch (LoginException e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
+        /*} catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        */}
     }
 
     private static void addListeners()
     {
-        getBuilder().addEventListener(new CommandListener());
-        getBuilder().addEventListener(new Moderation());
+        getBuilder().addEventListeners(new CommandListener());
+        getBuilder().addEventListeners(new Moderation());
     }
 
     private static void addCommands()
@@ -265,6 +298,7 @@ public class Bot {
         commandHandler.commands.put("twitch", new cmdTwitch());
         commandHandler.commands.put("die", new cmdDie());
         commandHandler.commands.put("ticket", new cmdTicket());
+        commandHandler.commands.put("wl", new cmdWhitelist());
     }
 
     private static void deleteAllCommands()
@@ -277,10 +311,9 @@ public class Bot {
 
     public static void SendPrivateMessage(String pMessage, String UserID)
     {
-            Bot.getJda().getUserById(UserID).openPrivateChannel().queue(privateChannel ->
-            {
-                privateChannel.sendMessage(pMessage).queue();
-            });
+        Bot.getJda().getGuildById(Bot.getDiscordID()).retrieveMemberById(UserID).complete().getUser().openPrivateChannel().queue(privateChannel -> {
+            privateChannel.sendMessage(pMessage).queue();
+        });
     }
 
     public static String getPlainID(String ID) {
@@ -319,25 +352,22 @@ public class Bot {
 
     public static boolean isUserInRole(String discordUserID, String discordRoleIDToCheck)
     {
-       return Bot.getJda().getGuildById(Bot.getDiscordID()).getMemberById(discordUserID).getRoles().contains(Bot.getJda().getRoleById(discordRoleIDToCheck));
+       return Bot.getJda().getGuildById(Bot.getDiscordID()).retrieveMemberById(discordUserID).complete().getRoles().contains(Bot.getJda().getRoleById(discordRoleIDToCheck));
     }
 
     public static void addRoleToUser(String UserID, String RoleID, Event event)
     {
-        //boolean status = false;
-        Member member = event.getJDA().getGuildById(Bot.getDiscordID()).getMemberById(UserID);
+
+        Member member = event.getJDA().getGuildById(Bot.getDiscordID()).retrieveMemberById(UserID).complete();
         Role role = event.getJDA().getRoleById(RoleID);
-        event.getJDA().getGuildById(Bot.getDiscordID()).getController().addSingleRoleToMember(member, role).complete();
-        //return true;
+        event.getJDA().getGuildById(Bot.getDiscordID()).addRoleToMember(member, role).complete();
     }
 
     public static void deleteRoleFromUser(String UserID, String RoleID, Event event)
     {
-        //boolean status = false;
-        Member member = event.getJDA().getGuildById(Bot.getDiscordID()).getMemberById(UserID);
+        Member member = event.getJDA().getGuildById(Bot.getDiscordID()).retrieveMemberById(UserID).complete();
         Role role = event.getJDA().getRoleById(RoleID);
-        event.getJDA().getGuildById(Bot.getDiscordID()).getController().removeSingleRoleFromMember(member, role).complete();
-        //return true;
+        event.getJDA().getGuildById(Bot.getDiscordID()).removeRoleFromMember(member, role).complete();
     }
 
 

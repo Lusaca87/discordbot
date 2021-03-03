@@ -2,9 +2,8 @@ package eu.pluginn.bot.commands;
 
 import eu.pluginn.bot.core.Bot;
 import eu.pluginn.bot.utils.Tools;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Role;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,11 +33,19 @@ public class cmdConfirm implements Command {
 
             if (tempArray[0].equals("done")) {
                 String ForenUserName = tempArray[1];
-                Member member = event.getJDA().getGuildById("585570094265139223").getMemberById(event.getAuthor().getId());
-                Role role = event.getJDA().getRoleById("609833008773464085");
-                event.getJDA().getGuildById("585570094265139223").getController().addSingleRoleToMember(member, role).complete();
-                String WisperMessage = String.format("Dein Forenbenutzername '%s' wurde mit diesem Discordkonto erfolgreich verknüpft. Vielen Dank", ForenUserName);
-                Bot.SendPrivateMessage(WisperMessage, event.getAuthor().getId());
+
+                    String ID = event.getAuthor().getId();
+                    Role role = event.getJDA().getRoleById("609833008773464085");
+
+                    if(Bot.isUserInRole(ID, "716981066371432478"))
+                    {
+                        Bot.deleteRoleFromUser(ID, "716981066371432478", event);
+                    }
+
+                    Bot.addRoleToUser(ID, role.getId(), event);
+                    String WisperMessage = String.format("Dein Forenbenutzername '%s' wurde mit diesem Discordkonto erfolgreich verknüpft. Vielen Dank", ForenUserName);
+                    Bot.SendPrivateMessage(WisperMessage, event.getAuthor().getId());
+               // }
             }
         }
     }

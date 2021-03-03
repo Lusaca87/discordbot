@@ -1,7 +1,7 @@
 package eu.pluginn.bot.commands;
 
 import eu.pluginn.bot.core.Bot;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class cmdBotRestart implements Command {
     @Override

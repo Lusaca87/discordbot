@@ -1,0 +1,6 @@
+Hallo %s, 
+
+Dein Whitelist-Antrag konnte zwischenzeitlich von unserem Team geprüft werden, doch leider müssen wir Dir mitteilen, dass wir Dich nicht der Whitelist zufügen konnten, da Deinem Antrag falsche Angaben zugrunde liegen. Bitte wende Dich für nähere Informationen an unseren Support. Vielen Dank.
+
+Hier ist nochmals Deine Nachricht, die Du uns geschickt hast: 
+```%s```

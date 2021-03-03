@@ -1,9 +1,10 @@
 package eu.pluginn.bot.listeners;
 
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
-import eu.pluginn.bot.core.*;
+import eu.pluginn.bot.core.Bot;
+import eu.pluginn.bot.core.commandHandler;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class CommandListener extends ListenerAdapter {
 
