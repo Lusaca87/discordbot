@@ -19,7 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List of the GitHub Actions environment variables on Windows
-        run: env
+        run: |
+          echo ${{ github.workspace }}
+          env
 
   github-actions-environment-variables-windows:
     runs-on: windows-latest
