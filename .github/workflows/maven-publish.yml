@@ -27,9 +27,12 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: List current Directory
+      run: ls -a
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/.m2/settings.xml
+      run: mvn deploy #-s $GITHUB_WORKSPACE/.m2/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
         
