@@ -26,4 +26,8 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: List current directory
       run: ls -a
+    - name: What is the target folder?
+      run: |
+        cd tartget
+        ls -a
       
