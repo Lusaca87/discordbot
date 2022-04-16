@@ -2,5 +2,5 @@ Hallo %s,
 
 Dein Whitelist-Antrag ist bei uns eingegangen. Unser Team wird diesen nun prüfen und verarbeiten, bitte gib uns etwas Zeit hierfür. Sobald es etwas Neues bezüglich Deines Antrages gibt, erhältst Du automatisch eine weitere Nachricht. 
 
-Hier ist nochmals Deine Nachricht, die Du uns geschickt hast:
+Hier ist nochmals Deine Nachricht, die du uns geschickt hast:
 ```%s```
