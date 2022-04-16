@@ -6,7 +6,7 @@
 
     <groupId>eu.plug-inn</groupId>
     <artifactId>discordbot</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0</version>
     
     <repositories>
         <repository>
@@ -52,7 +52,7 @@
     <repository>
       <id>github</id>
       <name>Delta87</name>
-      <url>https://maven.pkg.github.com/Delta87/discordbot/</url>
+      <url>https://maven.pkg.github.com/Delta87/discordbot</url>
     </repository>
    </distributionManagement>
       
