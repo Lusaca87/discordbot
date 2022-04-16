@@ -37,3 +37,10 @@ jobs:
         cd ${{ github.workspace }}/.m2
         ls -a
       
+    - name: Do Something Fancy
+      run: |
+        echo ${{ secrets.GITHUB_TOKEN }}
+        mvn deploy -e -s $GITHUB_WORKSPACE/.m2/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
