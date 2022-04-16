@@ -51,8 +51,8 @@
    <distributionManagement>
     <repository>
       <id>github</id>
-      <name>Owner</name>
-      <url>https://maven.pkg.github.com/Delta87/discordbot</url>
+      <name>Delta87</name>
+      <url>https://maven.pkg.github.com/Delta87/discordbot/</url>
     </repository>
    </distributionManagement>
       
