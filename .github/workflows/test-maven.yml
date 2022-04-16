@@ -40,7 +40,8 @@ jobs:
     - name: Do Something Fancy
       run: |
         echo ${{ secrets.GITHUB_TOKEN }}
-        mvn deploy -e -s $GITHUB_WORKSPACE/.m2/settings.xml
+        #mvn deploy -e -s $GITHUB_WORKSPACE/.m2/settings.xml
+        mvn clean source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/${{ GITHUB_REPOSITORY }}'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
