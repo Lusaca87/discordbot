@@ -50,14 +50,13 @@
          
    <distributionManagement>
      <repository>
+       <uniqueVersion>false</uniqueVersion>       
        <id>github</id>
-       <name>GitHub Apache Maven Packages</name>
+       <name>GitHub Packages</name>
        <url>https://maven.pkg.github.com/Delta87/discordbot</url>
      </repository>
   </distributionManagement>
-         
-         
-         
+      
     <build>
         <plugins>
             <plugin>
