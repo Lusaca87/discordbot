@@ -30,4 +30,8 @@ jobs:
       run: |
         cd target
         ls -a
+    - name: Workspace?
+      run: |
+        cd ${{ github.workspace }}
+        ls -a
       
