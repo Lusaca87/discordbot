@@ -49,14 +49,12 @@
     </dependencies>
          
    <distributionManagement>
-     <site>
-		<uniqueVersion>false</uniqueVersion> 	
-                  <id>github-project-site</id>
-			<name>GitHub Project Pages</name>
-			<url>gitsite:git@github.com:Delta87/discordbot.git</url>
-			
-		</site>
-  </distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>Owner</name>
+      <url>https://maven.pkg.github.com/Delta87/discordbot</url>
+    </repository>
+   </distributionManagement>
       
     <build>
         <plugins>
